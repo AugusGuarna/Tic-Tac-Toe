@@ -9,16 +9,16 @@ char board[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
 \nThis allow us to consider the board as a "given constant" so it won't be necessary to include it as the parameters of any function.\nTo print it, a simple void function will be ok. You can either build two for cycles one inside another, or if you want it more fancy and with the traditional display you can do it like this:
 ```
 void showBoard(){
-    cout<<"\n";
-    cout<<"\t   |   |   \n";
-    cout<<"\t "<<board[0][0]<<" | " << board[0][1]<<" | "<<board[0][2]<< " \n";
-    cout<<"\t___|___|___\n";
-    cout<<"\t   |   |   \n";
-    cout<<"\t "<<board[1][0]<<" | " << board[1][1]<<" | "<<board[1][2]<< " \n";
-    cout<<"\t___|___|___\n";
-    cout<<"\t   |   |   \n";
-    cout<<"\t "<<board[2][0]<<" | " << board[2][1]<<" | "<<board[2][2]<< " \n";
-    cout<<"\t   |   |   \n";
+    cout<<"  \t 0   1   2\n";
+    cout<<"  \t   |   |   \n";
+    cout<<"0 \t "<<board[0][0]<<" | " << board[0][1]<<" | "<<board[0][2]<< " \n";
+    cout<<"  \t___|___|___\n";
+    cout<<"  \t   |   |   \n";
+    cout<<"1 \t "<<board[1][0]<<" | " << board[1][1]<<" | "<<board[1][2]<< " \n";
+    cout<<"  \t___|___|___\n";
+    cout<<"  \t   |   |   \n";
+    cout<<"2 \t "<<board[2][0]<<" | " << board[2][1]<<" | "<<board[2][2]<< " \n";
+    cout<<"  \t   |   |   \n";
 }
 ```
 # When does a player win?
@@ -53,7 +53,7 @@ This will be the function that determines the different turns of the players and
 1. If player 1 didn't won
 2. If player 2 didn't won
 3. If i < 5. i in this case represents the number of movements of player 1. As i is initialize it in 0 and the most movements player 1 can make is 5 without winning, if i = 6 and neither of the players have won, then there's no more game to play.
-Inside this cycle will ask the player to tell us the coordinates of each movement. For this we'll assume that they do know how to play and won't try to occupy a position that has already been taken. Once the coordinate is indicated, the map will change.
+Inside this cycle will ask the player to tell us the coordinates of each movement. For this we'll assume that they do know how to play and won't try to occupy a position that has already been taken. Once the coordinate is indicated, the map will change. To show the map at the end of the game we'll write `showBoard()` at the end of the cycle.
 ```
 void play(){
     int line, column;
@@ -88,6 +88,8 @@ So once you've done something like this, what remains is the integration inside 
 int main() {
     cout << "\nWelcome to my Tic - Tac - Toe game! :D\n";
     cout << "\nTwo players: Player 1 = [O] and Player 2 = [X]\n";
+    cout << "\nThe line number is on the left side of the board while the column number is on top\n";
+    cout << "\nHave fun and enjoy!!\n";
     play();
     if (p1HasWon()){
         cout << "Player 1 has won. Congrats player 1, you've asserted your dominance. You're officially a sigma male.";
@@ -96,6 +98,5 @@ int main() {
     } else {
         cout << "\nDraw. You're both beta males, I'm disapointed.";
     }
-
 }
 ```

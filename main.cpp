@@ -5,16 +5,16 @@ using namespace std;
 char board[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
 
 void showBoard(){
-    cout<<"\n";
-    cout<<"\t   |   |   \n";
-    cout<<"\t "<<board[0][0]<<" | " << board[0][1]<<" | "<<board[0][2]<< " \n";
-    cout<<"\t___|___|___\n";
-    cout<<"\t   |   |   \n";
-    cout<<"\t "<<board[1][0]<<" | " << board[1][1]<<" | "<<board[1][2]<< " \n";
-    cout<<"\t___|___|___\n";
-    cout<<"\t   |   |   \n";
-    cout<<"\t "<<board[2][0]<<" | " << board[2][1]<<" | "<<board[2][2]<< " \n";
-    cout<<"\t   |   |   \n";
+    cout<<"  \t 0   1   2\n";
+    cout<<"  \t   |   |   \n";
+    cout<<"0 \t "<<board[0][0]<<" | " << board[0][1]<<" | "<<board[0][2]<< " \n";
+    cout<<"  \t___|___|___\n";
+    cout<<"  \t   |   |   \n";
+    cout<<"1 \t "<<board[1][0]<<" | " << board[1][1]<<" | "<<board[1][2]<< " \n";
+    cout<<"  \t___|___|___\n";
+    cout<<"  \t   |   |   \n";
+    cout<<"2 \t "<<board[2][0]<<" | " << board[2][1]<<" | "<<board[2][2]<< " \n";
+    cout<<"  \t   |   |   \n";
 }
 
 bool p1HasWon (){
@@ -83,6 +83,7 @@ void play(){
             j++;
         }
     }
+    showBoard();
 
 }
 
@@ -90,6 +91,8 @@ void play(){
 int main() {
     cout << "\nWelcome to my Tic - Tac - Toe game! :D\n";
     cout << "\nTwo players: Player 1 = [O] and Player 2 = [X]\n";
+    cout << "\nThe line number is on the left side of the board while the column number is on top\n";
+    cout << "\nHave fun and enjoy!!\n";
     play();
     if (p1HasWon()){
         cout << "Player 1 has won. Congrats player 1, you've asserted your dominance. You're officially a sigma male.";
@@ -98,5 +101,4 @@ int main() {
     } else {
         cout << "\nDraw. You're both beta males, I'm disapointed.";
     }
-
 }
